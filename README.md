@@ -6,7 +6,7 @@ LAMP INSTALLER  the best tools for help install lamp server on linux os
 
 1. Download Lamp installer by cURL : 
 ```bash 
-  curl -o lamp-installer.sh https://raw.githubusercontent.com/chamnan-dev/LAMP-INSTALLER/master/lamp-installer.sh
+  curl -o lamp-installer.sh https://raw.githubusercontent.com/chamnan-dev/LAMP-INSTALLER/master/install_lamp.sh
 ``` 
 
 2. Please typing command like bellow on your terminal: 
