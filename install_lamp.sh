@@ -46,7 +46,7 @@ detect_os() {
 install_debian() {
   log "Detected Debian-based system ($OS). Proceeding with installation..."
   sudo apt update -y && sudo apt upgrade -y
-  sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql phpmyadmin -y
+  sudo apt install apache2 mysql-server php php-cli php-cgi libapache2-mod-php php-mysql phpmyadmin -y
   sudo mysql --validate-password=OFF
   sudo systemctl start apache2
   sudo systemctl enable apache2
@@ -70,7 +70,7 @@ EOF
 install_rhel() {
   log "Detected RHEL-based system ($OS). Proceeding with installation..."
   sudo yum update -y
-  sudo yum install httpd mariadb-server php php-mysqlnd epel-release -y
+  sudo yum install httpd mariadb-server php php php-cli php-cgi php-mysqlnd epel-release -y
   sudo yum install phpmyadmin -y
   sudo systemctl start httpd
   sudo systemctl enable httpd
@@ -95,7 +95,7 @@ EOF
 install_arch() {
   log "Detected Arch Linux system ($OS). Proceeding with installation..."
   sudo pacman -Syu --noconfirm
-  sudo pacman -S apache mariadb php php-apache phpmyadmin --noconfirm
+  sudo pacman -S apache mariadb php php php-cli php-cgi php-apache phpmyadmin --noconfirm
   sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
   sudo systemctl start mariadb
   sudo systemctl enable mariadb
